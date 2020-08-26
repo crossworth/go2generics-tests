@@ -1,0 +1,26 @@
+package main
+
+import (
+	"bytes"
+	"html/template"
+	"io/ioutil"
+)
+
+func Must[T any](t T, err error) T {
+	if err != nil {
+		panic(err)
+	}
+
+	return t
+}
+
+func exampleMust() {
+	tpl := Must(template.New("test").Parse("Hello there"))
+	_ = tpl
+
+	var input bytes.Buffer
+	input.WriteString("Hi")
+
+	output := Must(ioutil.ReadAll(&input))
+	_ = output
+}
