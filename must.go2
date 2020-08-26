@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 )
 
+// https://groups.google.com/g/golang-nuts/c/iAD0NBz3DYw
 func Must[T any](t T, err error) T {
 	if err != nil {
 		panic(err)
